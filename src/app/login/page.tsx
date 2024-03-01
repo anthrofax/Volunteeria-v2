@@ -17,7 +17,7 @@ function page() {
             <label htmlFor="email">Email</label>
             <input
               type="email"
-              className="rounded-md  active:outline-2 outline-purple1" 
+              className="rounded-md  active:outline-2 outline-purple1"
               autoFocus
             />
           </div>

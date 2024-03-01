@@ -1,0 +1,8 @@
+{
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/volunteers/page": "app/volunteers/page.js",
+  "/login/page": "app/login/page.js"
+}
