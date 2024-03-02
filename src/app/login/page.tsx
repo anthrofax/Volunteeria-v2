@@ -1,9 +1,27 @@
 "use client";
 
 import Heading from "@/components/heading";
-import { Button } from "flowbite-react";
+import authenticate from "@/services/authentication";
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
+import { useFormState } from "react-dom";
 
 function page() {
+  const [message, formAction] = useFormState(authenticate, null);
+  console.log(message);
+
+  useEffect(
+    function () {
+      if (message) {
+        if (message?.data?.user?.aud === "authenticated")
+          return redirect("/volunteers");
+
+        if (!message?.data.user) redirect("/");
+      }
+    },
+    [message]
+  );
+
   return (
     <div className="relative w-full h-screen bg-white2">
       <div
@@ -12,13 +30,16 @@ function page() {
       >
         <Heading text="Login" level="h1" className="text-center mb-7" />
 
-        <div role="input-container" className=" flex flex-col gap-3">
+        <form action={formAction} className=" flex flex-col gap-3">
           <div className="flex flex-col">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               className="rounded-md  active:outline-2 outline-purple1"
               autoFocus
+              name="email"
+              id="email"
+              defaultValue="afridhoikhsan@gmail.com"
             />
           </div>
 
@@ -27,13 +48,16 @@ function page() {
             <input
               type="password"
               className="rounded-md  active:outline-2 outline-purple1"
+              name="password"
+              id="password"
+              defaultValue="mar777it39"
             />
           </div>
-        </div>
 
-        <Button color="purple" size="xl" className="w-full mt-5">
-          Login
-        </Button>
+          <button className="w-full mt-5 bg-purple1 text-white py-3 rounded-lg hover:bg-purple2">
+            Login
+          </button>
+        </form>
 
         <p className="mt-7">
           Tidak memiliki akun?{" "}

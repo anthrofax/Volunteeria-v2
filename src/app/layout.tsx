@@ -1,15 +1,27 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./ui/globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "Volunteeria",
   description: "Volunteers Vacancy Information Provider",
 };
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+    },
+  },
+});
 
 export default function RootLayout({
   children,
@@ -19,9 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
+        {
+          <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <Navbar />
+            {children}
+            <Footer />
+          </QueryClientProvider>
+        }
       </body>
     </html>
   );
