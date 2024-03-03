@@ -1,9 +1,11 @@
 "use client";
+
 import { MdOutlineVolunteerActivism } from "react-icons/md";
 import { Navbar as FlowbiteNavbar, Button } from "flowbite-react";
 import Image from "next/image";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getSession } from "@/utils/supabase/authApi";
 
 function Navbar() {
   const pathname = usePathname();
@@ -32,28 +34,36 @@ function Navbar() {
           >
             About
           </FlowbiteNavbar.Link>
-          <FlowbiteNavbar.Link
-            href="/signup"
-            className={`nav-links ${
-              pathname === "/signup" ? "text-purple1" : ""
-            }`}
-          >
-            Sign up
-          </FlowbiteNavbar.Link>
-          <FlowbiteNavbar.Link
-            href="/login"
-            className={`nav-links ${
-              pathname === "/login" ? "text-purple1" : ""
-            }`}
-          >
-            Login
-          </FlowbiteNavbar.Link>
-          <FlowbiteNavbar.Link
-            href="/login"
-            className="nav-links block md:hidden bg-purple2 text-white2"
-          >
-            Volunteers / Jobs
-          </FlowbiteNavbar.Link>
+          {!sessionData && (
+            <FlowbiteNavbar.Link
+              href="/signup"
+              className={`nav-links ${
+                pathname === "/signup" ? "text-purple1" : ""
+              }`}
+            >
+              Sign up
+            </FlowbiteNavbar.Link>
+          )}
+
+          {!sessionData && (
+            <FlowbiteNavbar.Link
+              href="/login"
+              className={`nav-links ${
+                pathname === "/login" ? "text-purple1" : ""
+              }`}
+            >
+              Login
+            </FlowbiteNavbar.Link>
+          )}
+
+          {!sessionData && (
+            <FlowbiteNavbar.Link
+              href="/volunteers"
+              className="nav-links block md:hidden bg-purple2 text-white2"
+            >
+              Volunteers / Jobs
+            </FlowbiteNavbar.Link>
+          )}
         </FlowbiteNavbar.Collapse>
 
         <form action="/volunteers" className="hidden md:block">

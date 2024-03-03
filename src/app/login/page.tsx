@@ -1,27 +1,8 @@
-"use client";
-
 import Heading from "@/components/heading";
-import authenticate from "@/services/authentication";
-import { redirect } from "next/navigation";
-import { useEffect } from "react";
-import { useFormState } from "react-dom";
+import { login } from "./actions";
+import { createClient } from "@/utils/supabase/server";
 
-function page() {
-  const [message, formAction] = useFormState(authenticate, null);
-  console.log(message);
-
-  useEffect(
-    function () {
-      if (message) {
-        if (message?.data?.user?.aud === "authenticated")
-          return redirect("/volunteers");
-
-        if (!message?.data.user) redirect("/");
-      }
-    },
-    [message]
-  );
-
+async function page() {
   return (
     <div className="relative w-full h-screen bg-white2">
       <div
@@ -30,7 +11,7 @@ function page() {
       >
         <Heading text="Login" level="h1" className="text-center mb-7" />
 
-        <form action={formAction} className=" flex flex-col gap-3">
+        <form action={login} className=" flex flex-col gap-3">
           <div className="flex flex-col">
             <label htmlFor="email">Email</label>
             <input
@@ -59,9 +40,9 @@ function page() {
           </button>
         </form>
 
-        <p className="mt-7">
+        <p className="mt-7 text-center">
           Tidak memiliki akun?{" "}
-          <a href="" className="text-blue-600">
+          <a href="/signup" className="text-blue-600 underline">
             Daftar
           </a>
         </p>

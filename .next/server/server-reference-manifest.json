@@ -1,5 +1,20 @@
 {
-  "node": {},
+  "node": {
+    "2190f21ba5289f1c8e9030d564b1f8dae7c0b833": {
+      "workers": {
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!",
+        "app/volunteers/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!",
+        "app/about/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!",
+        "app/not-found": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/volunteers/page": "rsc",
+        "app/about/page": "action-browser",
+        "app/not-found": "action-browser"
+      }
+    }
+  },
   "edge": {},
-  "encryptionKey": "Hfi/Gcsu5+aMrSxRn+cBSZvBnxvGARM1T26xev34qao="
+  "encryptionKey": "faZf/0+eP1m1+ZRKRTAE6N0kNTfAtMlOQJA4lNIy5oI="
 }
