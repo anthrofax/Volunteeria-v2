@@ -5,9 +5,6 @@ import { Inter } from "next/font/google";
 import "./ui/globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { redirect } from "next/navigation";
-import { getSession } from "@/utils/supabase/authApi";
-import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 

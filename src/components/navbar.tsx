@@ -1,14 +1,21 @@
 "use client";
 
 import { MdOutlineVolunteerActivism } from "react-icons/md";
-import { Navbar as FlowbiteNavbar, Button } from "flowbite-react";
+import {
+  Navbar as FlowbiteNavbar,
+  Button,
+  Dropdown,
+  Avatar,
+} from "flowbite-react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { getSession } from "@/utils/supabase/authApi";
+import { usePathname, useRouter } from "next/navigation";
+import { logout } from "@/utils/supabase/authApi";
+import useProtectRoute from "@/utils/useProtectRoute";
 
 function Navbar() {
   const pathname = usePathname();
+  const isLoggedIn = useProtectRoute();
+  const router = useRouter();
 
   return (
     <FlowbiteNavbar fluid rounded className="p-5 shadow-md shadow-slate-300 ">
@@ -34,7 +41,7 @@ function Navbar() {
           >
             About
           </FlowbiteNavbar.Link>
-          {!sessionData && (
+          {!isLoggedIn && (
             <FlowbiteNavbar.Link
               href="/signup"
               className={`nav-links ${
@@ -45,7 +52,7 @@ function Navbar() {
             </FlowbiteNavbar.Link>
           )}
 
-          {!sessionData && (
+          {!isLoggedIn && (
             <FlowbiteNavbar.Link
               href="/login"
               className={`nav-links ${
@@ -55,30 +62,61 @@ function Navbar() {
               Login
             </FlowbiteNavbar.Link>
           )}
-
-          {!sessionData && (
-            <FlowbiteNavbar.Link
-              href="/volunteers"
-              className="nav-links block md:hidden bg-purple2 text-white2"
-            >
-              Volunteers / Jobs
-            </FlowbiteNavbar.Link>
-          )}
         </FlowbiteNavbar.Collapse>
 
-        <form action="/volunteers" className="hidden md:block">
-          <Button
-            pill
-            gradientMonochrome="purple"
-            type="submit"
-            className="text-xl"
-          >
-            Volunteers / Jobs{" "}
-            <div className="ml-2 mb-2">
-              <MdOutlineVolunteerActivism size={30} />
-            </div>
-          </Button>
-        </form>
+        {pathname !== "/volunteers" && (
+          <form action="/volunteers" className="hidden md:block">
+            <Button
+              pill
+              gradientMonochrome="purple"
+              type="submit"
+              className="text-xl"
+            >
+              Volunteers / Jobs{" "}
+              <div className="ml-2 mb-2">
+                <MdOutlineVolunteerActivism size={30} />
+              </div>
+            </Button>
+          </form>
+        )}
+
+        {isLoggedIn && (
+          <div className="flex md:order-2">
+            <Dropdown
+              arrowIcon={false}
+              inline
+              label={
+                <Avatar
+                  alt="User settings"
+                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                  rounded
+                />
+              }
+            >
+              <Dropdown.Header className="z-30">
+                <span className="block text-sm">Bonnie Green</span>
+
+                <span className="block truncate text-sm font-medium">
+                  name@flowbite.com
+                </span>
+              </Dropdown.Header>
+              <Dropdown.Item>Dashboard</Dropdown.Item>
+              <Dropdown.Item>Settings</Dropdown.Item>
+              <Dropdown.Item>Earnings</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item
+                onClick={async () => {
+                  const { error } = await logout();
+
+                  if (!error) router.push("/login");
+                }}
+              >
+                Sign out
+              </Dropdown.Item>
+            </Dropdown>
+          </div>
+        )}
+
         <FlowbiteNavbar.Toggle />
       </div>
     </FlowbiteNavbar>

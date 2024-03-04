@@ -1,8 +1,14 @@
+"use client";
+
 import Heading from "@/components/heading";
 import { login } from "./actions";
-import { createClient } from "@/utils/supabase/server";
+import { useEffect } from "react";
+import { redirect } from "next/navigation";
+import useIsLoggedin from "@/utils/useProtectRoute";
 
-async function page() {
+function page() {
+
+
   return (
     <div className="relative w-full h-screen bg-white2">
       <div

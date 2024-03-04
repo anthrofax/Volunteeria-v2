@@ -1120,6 +1120,9 @@ input:checked + .toggle-bg {
 .z-20 {
   z-index: 20;
 }
+.z-30 {
+  z-index: 30;
+}
 .z-40 {
   z-index: 40;
 }
@@ -1690,6 +1693,11 @@ input:checked + .toggle-bg {
 .scroll-smooth {
   scroll-behavior: smooth;
 }
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -2023,10 +2031,6 @@ input:checked + .toggle-bg {
 .bg-purple1 {
   --tw-bg-opacity: 1;
   background-color: rgb(95 122 219 / var(--tw-bg-opacity));
-}
-.bg-purple2 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(162 178 238 / var(--tw-bg-opacity));
 }
 .bg-red-100 {
   --tw-bg-opacity: 1;
@@ -2609,10 +2613,6 @@ input:checked + .toggle-bg {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-white2 {
-  --tw-text-opacity: 1;
-  color: rgb(243 245 250 / var(--tw-text-opacity));
 }
 .text-yellow-400 {
   --tw-text-opacity: 1;

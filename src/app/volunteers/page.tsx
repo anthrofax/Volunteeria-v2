@@ -1,24 +1,13 @@
-import { createClient } from "@/utils/supabase/server";
-import { useQuery } from "@tanstack/react-query";
-import { redirect } from "next/navigation";
+"use client";
 
-async function Volunteers() {
-  const supabase = await createClient();
+import useProtectRoute from "@/utils/useProtectRoute";
 
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  console.log(user);
-
-  if (error) {
-    redirect("/");
-  }
+function Volunteers() {
+  const isLoggedIn = useProtectRoute(true);
 
   return (
     <div>
-      {user && <h1>Hello, {user.email}</h1>}
+      {/* {user && <h1>Hello, {user.email}</h1>} */}
       <h1>test</h1>
     </div>
   );

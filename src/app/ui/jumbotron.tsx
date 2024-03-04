@@ -148,7 +148,6 @@ function LoadingBar({ isLoading }: { isLoading: boolean }) {
         }
 
         if (isLoading) setLoadingProgress((value: any) => value + 1);
-        //   console.log(loadingBar.current)
 
         loadingBar.current.style.width = `${loadingProgress}vw`;
       }, 100);
