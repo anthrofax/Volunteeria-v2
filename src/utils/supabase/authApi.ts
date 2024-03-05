@@ -1,14 +1,13 @@
 import { Session } from "next-auth";
 import { createClient } from "./client";
-import { createClient as createServerClient } from "./server";
+import { createClient as createServer } from "./server";
 import { AuthError } from "@supabase/supabase-js";
-import { redirect } from "next/navigation";
 
 const supabase = createClient();
 
-export async function getSession(whereToUse: "server" | "client") {
+export async function getSession(whereToUse: "client" | "server") {
   const supabase =
-    whereToUse === "server" ? await createServerClient() : createClient();
+    whereToUse === "server" ? await createServer() : createClient();
 
   const {
     data: { session },
@@ -16,8 +15,8 @@ export async function getSession(whereToUse: "server" | "client") {
   } = await supabase.auth.getSession();
 
   return { session, error } as {
-    session: Session | null;
-    error: AuthError | null;
+    session: any;
+    error: any;
   };
 }
 

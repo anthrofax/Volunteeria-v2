@@ -9,13 +9,28 @@ import {
 } from "flowbite-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { logout } from "@/utils/supabase/authApi";
-import useProtectRoute from "@/utils/useProtectRoute";
+import { getSession, logout } from "@/utils/supabase/authApi";
+import { useRoute } from "@/contexts/RouteContext";
+import { useEffect } from "react";
 
 function Navbar() {
   const pathname = usePathname();
-  const isLoggedIn = useProtectRoute();
+  const { isLoggedIn, setIsLoggedIn } = useRoute();
   const router = useRouter();
+
+  useEffect(() => {
+    const tempGetSession = async () => {
+      try {
+        const { session } = await getSession("client");
+
+        setIsLoggedIn(session !== null);
+      } catch (error) {
+        console.error("Error fetching session:", error);
+      }
+    };
+
+    tempGetSession();
+  }, []);
 
   return (
     <FlowbiteNavbar fluid rounded className="p-5 shadow-md shadow-slate-300 ">
@@ -83,6 +98,7 @@ function Navbar() {
         {isLoggedIn && (
           <div className="flex md:order-2">
             <Dropdown
+              className="z-30"
               arrowIcon={false}
               inline
               label={
@@ -93,7 +109,7 @@ function Navbar() {
                 />
               }
             >
-              <Dropdown.Header className="z-30">
+              <Dropdown.Header className="">
                 <span className="block text-sm">Bonnie Green</span>
 
                 <span className="block truncate text-sm font-medium">
@@ -108,7 +124,10 @@ function Navbar() {
                 onClick={async () => {
                   const { error } = await logout();
 
-                  if (!error) router.push("/login");
+                  if (!error) {
+                    setIsLoggedIn(false);
+                    router.push("/login");
+                  }
                 }}
               >
                 Sign out

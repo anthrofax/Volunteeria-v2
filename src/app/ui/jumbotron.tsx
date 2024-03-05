@@ -87,7 +87,7 @@ function Jumbotron({ images }: { images: string[] }) {
           isAnimating,
         }}
       >
-        <div className="bg-black opacity-20 absolute top-0 left-0 right-0 bottom-0 z-20"></div>
+        <div className="bg-black opacity-20 absolute top-0 left-0 right-0 bottom-0 z-10"></div>
         <LoadingBar isLoading={isLoading} />
         <h1></h1>
         <SliderButton direction="left" showed={isHovered} />

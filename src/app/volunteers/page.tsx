@@ -1,9 +1,12 @@
-"use client";
+"use server";
 
-import useProtectRoute from "@/utils/useProtectRoute";
+import { getSession } from "@/utils/supabase/authApi";
+import { redirect } from "next/navigation";
 
-function Volunteers() {
-  const isLoggedIn = useProtectRoute(true);
+async function Volunteers() {
+  const { session } = await getSession("server");
+
+  if (!session) redirect("/login");
 
   return (
     <div>

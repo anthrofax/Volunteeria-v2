@@ -1,13 +1,14 @@
-"use client";
+"use server";
 
 import Heading from "@/components/heading";
-import { login } from "./actions";
-import { useEffect } from "react";
+import { getSession } from "@/utils/supabase/authApi";
 import { redirect } from "next/navigation";
-import useIsLoggedin from "@/utils/useProtectRoute";
+import LoginForm from "./login-form";
 
-function page() {
+async function page() {
+  const { session } = await getSession('server');
 
+  if (session) redirect("/volunteers");
 
   return (
     <div className="relative w-full h-screen bg-white2">
@@ -17,34 +18,7 @@ function page() {
       >
         <Heading text="Login" level="h1" className="text-center mb-7" />
 
-        <form action={login} className=" flex flex-col gap-3">
-          <div className="flex flex-col">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              className="rounded-md  active:outline-2 outline-purple1"
-              autoFocus
-              name="email"
-              id="email"
-              defaultValue="afridhoikhsan@gmail.com"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="username">Password</label>
-            <input
-              type="password"
-              className="rounded-md  active:outline-2 outline-purple1"
-              name="password"
-              id="password"
-              defaultValue="mar777it39"
-            />
-          </div>
-
-          <button className="w-full mt-5 bg-purple1 text-white py-3 rounded-lg hover:bg-purple2">
-            Login
-          </button>
-        </form>
+        <LoginForm />
 
         <p className="mt-7 text-center">
           Tidak memiliki akun?{" "}
