@@ -98,7 +98,7 @@ function Navbar() {
         {isLoggedIn && (
           <div className="flex md:order-2">
             <Dropdown
-              className="z-30"
+              className=""
               arrowIcon={false}
               inline
               label={

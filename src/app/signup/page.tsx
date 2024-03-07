@@ -6,8 +6,7 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/utils/supabase/authApi";
 
 async function page() {
-  const { session } = await getSession('server');
-
+  const { session } = await getSession("server");
   if (session) redirect("/volunteers");
 
   return (

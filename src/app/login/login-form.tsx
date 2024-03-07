@@ -1,18 +1,12 @@
 "use client";
-import { useRoute } from "@/contexts/RouteContext";
-import { login } from "./actions";
+import { Spinner } from "flowbite-react";
+import useLogin from "./useLogin";
 
 function LoginForm() {
-  const { setIsLoggedIn } = useRoute();
+const {loginMutation, isDoingLogin} = useLogin();
 
   return (
-    <form
-      action={login}
-      className=" flex flex-col gap-3"
-      onSubmit={(e) => {
-        setIsLoggedIn(true);
-      }}
-    >
+    <form action={loginMutation} className=" flex flex-col gap-3">
       <div className="flex flex-col">
         <label htmlFor="email">Email</label>
         <input
@@ -37,7 +31,7 @@ function LoginForm() {
       </div>
 
       <button className="w-full mt-5 bg-purple1 text-white py-3 rounded-lg hover:bg-purple2">
-        Login
+        Login {isDoingLogin && <Spinner size="sm" />}
       </button>
     </form>
   );
