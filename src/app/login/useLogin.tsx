@@ -1,7 +1,7 @@
-import { useRoute } from "@/contexts/RouteContext";
-import { login } from "@/utils/supabase/authApi";
+import { useRoute } from "@/app/contexts/RouteContext";
+import { login } from "@/app/utils/supabase/authApi";
 import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 function useLogin() {

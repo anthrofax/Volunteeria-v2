@@ -1,22 +1,34 @@
 "use client";
 import { Spinner } from "flowbite-react";
 import useLogin from "./useLogin";
+import { useForm } from "react-hook-form";
 
 function LoginForm() {
-const {loginMutation, isDoingLogin} = useLogin();
+  const { loginMutation, isDoingLogin } = useLogin();
+  const { register, handleSubmit, formState } = useForm();
+
+  const { errors } = formState;
+
+  function onSubmit(data: any) {
+    loginMutation(data);
+    console.log(errors);
+  }
 
   return (
-    <form action={loginMutation} className=" flex flex-col gap-3">
+    <form onSubmit={handleSubmit(onSubmit)} className=" flex flex-col gap-3">
       <div className="flex flex-col">
         <label htmlFor="email">Email</label>
         <input
           type="email"
           className="rounded-md  active:outline-2 outline-purple1"
           autoFocus
-          name="email"
           id="email"
           defaultValue="afridhoikhsan@gmail.com"
+          {...register("email", {
+            required: "Kolom ini harus diisi",
+          })}
         />
+        <p className="text-red-600 mt-3">{errors?.email?.message}</p>
       </div>
 
       <div className="flex flex-col">
@@ -24,10 +36,13 @@ const {loginMutation, isDoingLogin} = useLogin();
         <input
           type="password"
           className="rounded-md  active:outline-2 outline-purple1"
-          name="password"
           id="password"
           defaultValue="mar777it39"
+          {...register("password", {
+            required: "Kolom ini harus diisi",
+          })}
         />
+        <p className="text-red-600 mt-3">{errors?.password?.message}</p>
       </div>
 
       <button className="w-full mt-5 bg-purple1 text-white py-3 rounded-lg hover:bg-purple2">

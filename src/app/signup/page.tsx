@@ -1,13 +1,13 @@
-"use server";
+"use client";
 
-import Heading from "@/components/heading";
+import Heading from "@/app/components/heading";
 import SignupForm from "./signup-form";
-import { redirect } from "next/navigation";
-import { getSession } from "@/utils/supabase/authApi";
 
-async function page() {
-  const { session } = await getSession("server");
-  if (session) redirect("/volunteers");
+import ConfirmationBox from "@/app/components/confirmation-box";
+import { useSignupContext } from "@/app/contexts/SignupContext";
+
+function page() {
+  const { showConfirm } = useSignupContext();
 
   return (
     <div className="relative w-full h-screen bg-white2">
@@ -25,6 +25,10 @@ async function page() {
           </a>
         </p>
       </div>
+
+      {showConfirm && (
+        <ConfirmationBox confirmationLabel="Apakah data yang anda masukkan sudah benar?" />
+      )}
     </div>
   );
 }

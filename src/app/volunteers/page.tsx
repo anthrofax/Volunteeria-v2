@@ -1,6 +1,6 @@
 "use server";
 
-import { getSession } from "@/utils/supabase/authApi";
+import { getSession } from "@/app/utils/supabase/authApi";
 import { redirect } from "next/navigation";
 
 async function Volunteers() {

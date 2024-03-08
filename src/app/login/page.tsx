@@ -1,7 +1,7 @@
 "use server";
 
-import Heading from "@/components/heading";
-import { getSession } from "@/utils/supabase/authApi";
+import Heading from "@/app/components/heading";
+import { getSession } from "@/app/utils/supabase/authApi";
 import { redirect } from "next/navigation";
 import LoginForm from "./login-form";
 

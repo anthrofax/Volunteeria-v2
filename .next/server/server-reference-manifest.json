@@ -1,44 +1,38 @@
 {
   "node": {
-    "2190f21ba5289f1c8e9030d564b1f8dae7c0b833": {
-      "workers": {
-        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!",
-        "app/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Flogin%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!",
-        "app/volunteers/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Fvolunteers%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!",
-        "app/signup/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Fsignup%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!"
-      },
-      "layer": {
-        "app/page": "action-browser",
-        "app/login/page": "rsc",
-        "app/volunteers/page": "rsc",
-        "app/signup/page": "rsc"
-      }
-    },
-    "779bf477fbc6e808e29feb63ad3dda35d913dda7": {
-      "workers": {
-        "app/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Flogin%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!"
-      },
-      "layer": {
-        "app/login/page": "rsc"
-      }
-    },
     "82c806952c7b65648f7dccf981f00ab0cb773759": {
       "workers": {
-        "app/volunteers/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Fvolunteers%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!"
+        "app/volunteers/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Fvolunteers%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!"
       },
       "layer": {
         "app/volunteers/page": "rsc"
       }
     },
-    "f11494c1b2d0db6e4b85c929b5662fbd68bd90d7": {
+    "a0e0a66e31f442c4f88c186bb7d401e02a6d4631": {
       "workers": {
-        "app/signup/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Fsignup%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!"
+        "app/volunteers/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Fvolunteers%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!",
+        "app/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Flogin%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!",
+        "app/signup/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!",
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!",
+        "app/about/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
-        "app/signup/page": "rsc"
+        "app/volunteers/page": "rsc",
+        "app/login/page": "rsc",
+        "app/signup/page": "action-browser",
+        "app/page": "action-browser",
+        "app/about/page": "action-browser"
+      }
+    },
+    "779bf477fbc6e808e29feb63ad3dda35d913dda7": {
+      "workers": {
+        "app/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Flogin%2Fpage.tsx%22%2C%5B%22default%22%5D%5D%2C%5B%22%2FUsers%2Fmacbookair%2FDesktop%2FVolunteeria-v2%2Fsrc%2Fapp%2Futils%2Fsupabase%2Fserver.ts%22%2C%5B%22createClient%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/login/page": "rsc"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "juWBenjQtRpAnbj6P4p9TM/I1DVR58oxmToXjKjYm14="
+  "encryptionKey": "EJp83p23L9C5Cv89ihtFiUMlTlcmMZf+2+Cot6/g634="
 }

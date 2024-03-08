@@ -1,73 +1,85 @@
 "use client";
-// import { signup } from "@/utils/supabase/authApi";
-// import { useMutation } from "@tanstack/react-query";
-// import toast from "react-hot-toast";
-import { FaGithub } from "react-icons/fa";
+import { useSignupContext } from "@/app/contexts/SignupContext";
 
 function SignupForm() {
-
-  // const { mutate } = useMutation({
-  //   mutationFn: signup,
-  //   onSuccess: () => {
-  //     toast.success("Akun anda berhasil terdaftar");
-
-  //     return "/login";
-  //   },
-  //   onError: () => {
-  //     toast.error("Ada kesalahan pada pendaftaran akun");
-  //   },
-  // });
+  const {
+    register,
+    getValues,
+    errors,
+    onShowConfirm,
+    form,
+    handleSubmit,
+    onSubmit,
+    onError,
+  } = useSignupContext();
 
   return (
-    <form action="" className=" flex flex-col gap-3">
-      <div className="flex flex-col">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          className="rounded-md  active:outline-2 outline-purple1"
-          autoFocus
-          name="email"
-          id="email"
-          defaultValue="afridhoikhsan@gmail.com"
-        />
-      </div>
+    <>
+      <form
+        ref={form}
+        className=" flex flex-col gap-3"
+        method="post"
+        onSubmit={handleSubmit(onSubmit, onError)}
+      >
+        <div className="flex flex-col">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            className="rounded-md  active:outline-2 outline-purple1"
+            autoFocus
+            id="email"
+            {...register("email", {
+              required: "Kolom ini harus diisi",
+            })}
+          />
+          <p className="text-red-600 mt-3">{errors?.email?.message}</p>
+        </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="username">Password</label>
-        <input
-          type="password"
-          className="rounded-md  active:outline-2 outline-purple1"
-          name="password"
-          id="password"
-          defaultValue="mar777it39"
-        />
-      </div>
+        <div className="flex flex-col">
+          <label htmlFor="username">Password</label>
+          <input
+            type="password"
+            className="rounded-md  active:outline-2 outline-purple1"
+            id="password"
+            {...register("password", {
+              required: "Kolom ini harus diisi",
+            })}
+          />
+          <p className="text-red-600 mt-3">{errors?.password?.message}</p>
+        </div>
 
-      <div className="flex flex-col">
-        <label htmlFor="username">Confirm Password</label>
-        <input
-          type="password"
-          className="rounded-md  active:outline-2 outline-purple1"
-          name="confirm-password"
-          id="confirm-password"
-          defaultValue="mar777it39"
-        />
-      </div>
+        <div className="flex flex-col">
+          <label htmlFor="username">Confirm Password</label>
+          <input
+            type="password"
+            className="rounded-md  active:outline-2 outline-purple1"
+            id="confirmPassword"
+            {...register("confirmPassword", {
+              required: "Kolom ini harus diisi",
+              validate: (value: string) =>
+                value === getValues().password ||
+                "Kata sandi yang anda masukkan tidak cocok",
+            })}
+          />
+          <p className="text-red-600 mt-3">
+            {errors?.confirmPassword?.message}
+          </p>
+        </div>
+        {/* <button className="w-full mt-5 bg-black hover:bg-black2 text-white py-3 rounded-lg flex justify-center items-center gap-3">
+        <FaGithub size={28} />
+        Signup with Github
+      </button> */}
+      </form>
 
       <button
-        className="w-full mt-5 bg-purple1 text-white py-3 rounded-lg hover:bg-purple2"
+        className="w-full mt-5 bg-purple1 text-white py-3 rounded-lg hover:bg-purple-500"
         onClick={() => {
-          // const confirm =
+          onShowConfirm(true);
         }}
       >
         Signup
       </button>
-
-      <button className="w-full mt-5 bg-black hover:bg-black2 text-white py-3 rounded-lg flex justify-center items-center gap-3">
-        <FaGithub size={28} />
-        Signup with Github
-      </button>
-    </form>
+    </>
   );
 }
 
