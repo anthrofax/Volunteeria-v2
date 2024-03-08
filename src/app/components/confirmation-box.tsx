@@ -1,4 +1,4 @@
-import { useSignupContext } from "@/app/contexts/SignupContext";
+import { useSignupContext } from "@/app/contexts/signup-context";
 import { Button } from "flowbite-react";
 
 function ConfirmationBox({ confirmationLabel }: { confirmationLabel: string }) {

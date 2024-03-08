@@ -1,18 +1,9 @@
 "use client";
 import { Spinner } from "flowbite-react";
-import useLogin from "./useLogin";
-import { useForm } from "react-hook-form";
+import useLogin from "./use-login";
 
 function LoginForm() {
-  const { loginMutation, isDoingLogin } = useLogin();
-  const { register, handleSubmit, formState } = useForm();
-
-  const { errors } = formState;
-
-  function onSubmit(data: any) {
-    loginMutation(data);
-    console.log(errors);
-  }
+  const { register, handleSubmit, onSubmit, errors, isDoingLogin } = useLogin();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className=" flex flex-col gap-3">

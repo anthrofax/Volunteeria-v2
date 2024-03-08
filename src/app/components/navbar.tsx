@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { getSession, logout } from "@/app/utils/supabase/authApi";
-import { useRoute } from "@/app/contexts/RouteContext";
+import { useRoute } from "@/app/contexts/route-context";
 import { useEffect } from "react";
 
 function Navbar() {

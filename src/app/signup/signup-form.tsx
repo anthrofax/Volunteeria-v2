@@ -1,5 +1,5 @@
 "use client";
-import { useSignupContext } from "@/app/contexts/SignupContext";
+import { useSignupContext } from "@/app/contexts/signup-context";
 
 function SignupForm() {
   const {
@@ -25,7 +25,9 @@ function SignupForm() {
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            className="rounded-md  active:outline-2 outline-purple1"
+            className={`rounded-md  active:outline-2 ${
+              errors.email ? "ring-2 ring-red-500" : "outline-purple1"
+            }`}
             autoFocus
             id="email"
             {...register("email", {
@@ -39,7 +41,9 @@ function SignupForm() {
           <label htmlFor="username">Password</label>
           <input
             type="password"
-            className="rounded-md  active:outline-2 outline-purple1"
+            className={`rounded-md  active:outline-2 ${
+              errors.password ? "ring-2 ring-red-500" : "outline-purple1"
+            }`}
             id="password"
             {...register("password", {
               required: "Kolom ini harus diisi",
@@ -52,7 +56,11 @@ function SignupForm() {
           <label htmlFor="username">Confirm Password</label>
           <input
             type="password"
-            className="rounded-md  active:outline-2 outline-purple1"
+            className={`rounded-md  active:outline-2 ${
+              errors.confirmPassword
+                ? "ring-2 ring-red-500"
+                : "outline-purple1"
+            }`}
             id="confirmPassword"
             {...register("confirmPassword", {
               required: "Kolom ini harus diisi",

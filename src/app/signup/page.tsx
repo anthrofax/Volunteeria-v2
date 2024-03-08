@@ -4,7 +4,7 @@ import Heading from "@/app/components/heading";
 import SignupForm from "./signup-form";
 
 import ConfirmationBox from "@/app/components/confirmation-box";
-import { useSignupContext } from "@/app/contexts/SignupContext";
+import { useSignupContext } from "@/app/contexts/signup-context";
 
 function page() {
   const { showConfirm } = useSignupContext();

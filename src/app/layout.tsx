@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "./ui/globals.css";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
-import { RouteProvider } from "@/app/contexts/RouteContext";
+import { RouteProvider } from "@/app/contexts/route-context";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";

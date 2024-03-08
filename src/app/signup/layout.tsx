@@ -1,4 +1,4 @@
-import { SignupProvider } from "@/app/contexts/SignupContext";
+import { SignupProvider } from "@/app/contexts/signup-context";
 
 function SignupLayout({
   children,
